@@ -8,10 +8,20 @@ spring:
     config:
       server:
         git:
-          uri: file:///C:/Users/jgarcpor/ProyectosSpringBoot/novabankmicroservices/configrepo
+          uri: file:///C:/Users/jgarcpor/ProyectosSpringBoot/novabankmicroservices/config-repo
           default-label: main
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    root: INFO
