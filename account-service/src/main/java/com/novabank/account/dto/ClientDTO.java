@@ -1,4 +1,4 @@
-package com.novabank.client.dto;
+package com.novabank.account.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
