@@ -1,11 +1,9 @@
 package com.novabank.account.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import feign.Client;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,9 +25,8 @@ public class Account {
     @Column(name = "iban", unique = true, nullable = false)
     private String iban;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+    @Column(name = "client_id", nullable = false)
+    private Long clientId;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Movement> movements = new ArrayList<>();
@@ -41,11 +38,9 @@ public class Account {
     @Column(name = "createdAt", updatable = false)
     private LocalDateTime createdAt;
 
-    public Account(Client client) {
-        this.client = client;
-
+    public Account(Long clientId) {
+        this.clientId = clientId;
     }
-
 
     @PrePersist
     public void prePersist() {
