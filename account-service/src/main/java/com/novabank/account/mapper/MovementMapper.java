@@ -1,5 +1,7 @@
 package com.novabank.account.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.novabank.account.dto.MovementDTO;
 import com.novabank.account.model.Movement;
 

@@ -1,6 +1,7 @@
 package com.novabank.account.service;
 
 import com.novabank.account.client.ClientServiceClient;
+import com.novabank.account.dto.AccountBalanceDTO;
 import com.novabank.account.dto.AccountDTO;
 import com.novabank.account.dto.MovementDTO;
 import com.novabank.account.exception.AccountNotFoundException;
@@ -176,7 +177,13 @@ public class AccountService {
         return MovementMapper.toDto(saved);
     }
 
-    // --------- helper de validación ---------
+    @Transactional(readOnly = true)
+    public AccountBalanceDTO getBalanceByIban(String iban) {
+        Account account = accountRepository.findByIban(iban)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found with IBAN: " + iban));
+
+        return new AccountBalanceDTO(account.getIban(), account.getBalance());
+    }
 
     private void validateAmount(BigDecimal amount) {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
