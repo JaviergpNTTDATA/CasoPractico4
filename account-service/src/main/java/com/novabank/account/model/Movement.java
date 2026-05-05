@@ -32,7 +32,7 @@ public class Movement {
     private BigDecimal amount;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
 

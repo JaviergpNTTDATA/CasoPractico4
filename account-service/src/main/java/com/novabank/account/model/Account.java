@@ -32,7 +32,7 @@ public class Account {
     private List<Movement> movements = new ArrayList<>();
 
     @Column(nullable = false)
-    private BigDecimal balance;
+    private BigDecimal balance = BigDecimal.ZERO;
 
     @CreationTimestamp
     @Column(name = "createdAt", updatable = false)

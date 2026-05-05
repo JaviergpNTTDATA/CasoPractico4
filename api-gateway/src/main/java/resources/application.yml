@@ -1,21 +1,10 @@
-spring: 
-  cloud: 
-    gateway: 
-      routes: 
-        - id: cliente-service 
-          uri: lb://CLIENTE-SERVICE 
-          predicates: 
-            - Path=/api/clientes/** 
-        - id: cuenta-service 
-          uri: lb://CUENTA-SERVICE 
-          predicates: 
-            - Path=/api/cuentas/** 
-        - id: operacion-service 
-          uri: lb://OPERACION-SERVICE 
-          predicates: 
- 
-            - Path=/api/operaciones/** 
-        - id: auth-server 
-          uri: lb://AUTH-SERVER 
-          predicates: 
-            - Path=/api/auth/**
+spring:
+  application:
+    name: api-gateway
+  config:
+    import: optional:configserver:http://localhost:8888
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

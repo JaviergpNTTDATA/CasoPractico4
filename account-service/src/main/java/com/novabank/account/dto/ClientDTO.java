@@ -18,8 +18,5 @@ public class ClientDTO {
     private String email;
     private String phone;
     private int accountCount;
-    public ClientDTO orElseThrow(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
-    }
+    
 }
