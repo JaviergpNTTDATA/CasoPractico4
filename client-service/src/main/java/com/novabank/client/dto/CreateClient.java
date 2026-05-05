@@ -1,21 +1,17 @@
 package com.novabank.client.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
+@NoArgsConstructor
 @AllArgsConstructor
-public class ClientDTO {
+@Builder
+public class CreateClient {
 
-    private Long id;
     private String firstName;
     private String lastName;
     private String dni;
     private String email;
     private String phone;
-    private int accountCount;
 }

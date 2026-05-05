@@ -1,5 +1,14 @@
 package com.novabank.account.client;
 
-public class ClientServiceClient {
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.novabank.account.dto.ClientDTO;
+
+@FeignClient(name = "CLIENT-SERVICE")
+public interface ClientServiceClient {
+
+    @GetMapping("/api/clientes/{id}")
+    ClientDTO getClientById(@PathVariable("id") Long id);
 }
