@@ -9,6 +9,6 @@ import com.novabank.account.dto.ClientDTO;
 @FeignClient(name = "CLIENT-SERVICE")
 public interface ClientServiceClient {
 
-    @GetMapping("/api/clientes/{id}")
+    @GetMapping("/clients/getById/{id}")
     ClientDTO getClientById(@PathVariable("id") Long id);
 }
