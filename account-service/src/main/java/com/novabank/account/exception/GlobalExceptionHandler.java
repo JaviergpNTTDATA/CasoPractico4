@@ -44,13 +44,12 @@ public class GlobalExceptionHandler{
         return buildResponse("ACCOUNT_NOT_FOUND", ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    /* 
+    
     //insufficient balance 422
-    @SuppressWarnings("deprecation")
     @ExceptionHandler(InsufficientBalanceException.class)
     public ResponseEntity<Map<String, Object>> handleSaldoInsuficiente(InsufficientBalanceException ex) {
         return buildResponse("INSUFFICIENT_BALANCE", ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-    }*/
+    }
 
     //Invdalid or duplicated error 400
     @ExceptionHandler(IllegalArgumentException.class)
