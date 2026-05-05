@@ -20,7 +20,7 @@ public class GlobalExceptionHandler{
         return buildResponse("CLIENT_NOT_FOUND", ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    /* 
+    
     //Movement not found 404
     @ExceptionHandler(MovementNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleMovementNotFound(MovementNotFoundException ex) {
