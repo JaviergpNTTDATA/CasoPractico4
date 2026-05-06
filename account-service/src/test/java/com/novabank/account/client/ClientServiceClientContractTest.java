@@ -11,7 +11,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(properties = {
+        "CLIENT-SERVICE.url=http://localhost:${wiremock.server.port}"
+})
 @AutoConfigureWireMock(port = 0)
 @ActiveProfiles("test")
 class ClientServiceClientContractTest {
@@ -21,7 +23,7 @@ class ClientServiceClientContractTest {
 
     @Test
     void getClientById_shouldReturnClientFromRemoteService() {
-        stubFor(get(urlEqualTo("/clients/1"))
+        stubFor(get(urlEqualTo("/clients/getById/1"))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
                         .withBody("""
@@ -39,6 +41,6 @@ class ClientServiceClientContractTest {
 
         assertNotNull(client);
         assertEquals(1L, client.getId());
-        assertEquals("string", client.getFirstName());
+        assertEquals("Juan", client.getFirstName());
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.novabank.account.dto.ClientDTO;
 
-@FeignClient(name = "CLIENT-SERVICE", fallback = ClientServiceFallback.class)
+@FeignClient(name = "CLIENT-SERVICE", url = "${CLIENT-SERVICE.url:}", fallback = ClientServiceFallback.class)
 public interface ClientServiceClient {
 
     @GetMapping("/clients/getById/{id}")
