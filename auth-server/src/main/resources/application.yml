@@ -1,5 +1,26 @@
+server:
+  port: 9001
+
 spring:
   application:
     name: auth-server
   config:
     import: optional:configserver:http://localhost:8888
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/novabank_auth
+    username: banco_user
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
