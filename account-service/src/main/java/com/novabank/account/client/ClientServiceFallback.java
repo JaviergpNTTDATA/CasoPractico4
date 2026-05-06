@@ -9,7 +9,6 @@ public class ClientServiceFallback implements ClientServiceClient {
 
     @Override
     public ClientDTO getClientById(Long id) {
-        // Respuesta degradada cuando client-service no está disponible
         ClientDTO dto = new ClientDTO();
         dto.setId(id);
         dto.setFirstName("Cliente no disponible");

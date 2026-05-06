@@ -19,8 +19,8 @@ public class AuthServerApplication {
     public CommandLineRunner initTestUser(UserRepository userRepository,
                                           PasswordEncoder passwordEncoder) {
         return args -> {
-            String username = System.getenv("ADMIN_USER");
-            String rawPassword = System.getenv("ADMIN_PASSWORD");
+            String username = "ADMIN_USER";
+            String rawPassword = "ADMIN_PASSWORD";
 
             if (userRepository.findByUsername(username).isEmpty()) {
                 User user = new User();
