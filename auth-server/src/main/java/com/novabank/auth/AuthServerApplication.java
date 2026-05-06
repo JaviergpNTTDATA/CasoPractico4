@@ -19,17 +19,16 @@ public class AuthServerApplication {
     public CommandLineRunner initTestUser(UserRepository userRepository,
                                           PasswordEncoder passwordEncoder) {
         return args -> {
-            String username = "testuser";
-            String rawPassword = "password"; // contraseña en texto plano
+            String username = System.getenv("ADMIN_USER");
+            String rawPassword = System.getenv("ADMIN_PASSWORD");
 
-            // Si ya existe, no lo duplicamos
             if (userRepository.findByUsername(username).isEmpty()) {
                 User user = new User();
                 user.setUsername(username);
                 user.setPassword(passwordEncoder.encode(rawPassword));
                 user.setRole("ROLE_USER");
                 userRepository.save(user);
-                System.out.println("Usuario de prueba creado: " + username + " / " + rawPassword);
+                System.out.println("User testing created: " + username + " / " + rawPassword);
             }
         };
     }
