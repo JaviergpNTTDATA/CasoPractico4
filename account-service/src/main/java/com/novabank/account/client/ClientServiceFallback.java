@@ -11,7 +11,7 @@ public class ClientServiceFallback implements ClientServiceClient {
     public ClientDTO getClientById(Long id) {
         ClientDTO dto = new ClientDTO();
         dto.setId(id);
-        dto.setFirstName("Cliente no disponible");
+        dto.setFirstName("Client Unavailable");
         dto.setLastName("");
         dto.setDni("");
         dto.setEmail("");

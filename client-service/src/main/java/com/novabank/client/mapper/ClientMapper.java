@@ -12,7 +12,6 @@ public class ClientMapper {
                 client.getDni(),
                 client.getEmail(),
                 client.getPhone(),
-                //client.getAccounts().size()
                 0
         );
     }

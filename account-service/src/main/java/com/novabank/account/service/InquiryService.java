@@ -26,9 +26,6 @@ public class InquiryService {
                 this.accountRepository = accountRepository;
         }
 
-        /**
-         * Lista todos los movimientos de una cuenta ordenados por fecha desc.
-         */
         public List<MovementDTO> getByAccount(String iban) {
 
                 accountRepository.findByIban(iban)
@@ -47,10 +44,6 @@ public class InquiryService {
                                 .toList();
         }
 
-        /**
-         * Lista movimientos de una cuenta entre dos fechas (incluyendo ambas),
-         * ordenados por fecha desc.
-         */
         public List<MovementDTO> getByAccountAndDates(String iban,
                         LocalDate start,
                         LocalDate end) {

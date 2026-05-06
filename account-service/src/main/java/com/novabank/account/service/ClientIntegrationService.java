@@ -27,7 +27,7 @@ public class ClientIntegrationService {
         log.warn("Fallback activado para cliente {}: {}", id, ex.getMessage());
         ClientDTO dto = new ClientDTO();
         dto.setId(id);
-        dto.setFirstName("No disponible");
+        dto.setFirstName("Client Unavailable");
         dto.setLastName("");
         dto.setDni("");
         dto.setEmail("");
