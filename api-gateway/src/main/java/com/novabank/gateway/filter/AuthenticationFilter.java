@@ -22,9 +22,8 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
 
-        // Deja pasar login de auth-server y rutas públicas si quieres
         String path = request.getURI().getPath();
-        if (path.startsWith("/auth/login")) { // en lugar de /api/auth/login
+        if (path.startsWith("/auth/login")) { 
             return chain.filter(exchange);
         }
 
@@ -52,12 +51,11 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
 
     private Mono<Void> onError(ServerWebExchange exchange, String message, HttpStatus status) {
         exchange.getResponse().setStatusCode(status);
-        // opcional: escribir body con mensaje
         return exchange.getResponse().setComplete();
     }
 
     @Override
     public int getOrder() {
-        return -1; // alta prioridad
+        return -1; 
     }
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8761   # si quieres usar el puerto típico de Eureka
+  port: 8761
 
 spring:
   application:
@@ -7,8 +7,8 @@ spring:
 
 eureka:
   client:
-    register-with-eureka: false   # no se registra como cliente
-    fetch-registry: false         # no intenta leer el registro de otros
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://localhost:8761/eureka/
   instance:

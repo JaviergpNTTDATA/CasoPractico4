@@ -30,7 +30,7 @@
 
 ### Consultas
 - Ver movimientos de una cuenta
-- Filtrar movimientos por rango de fechas (según endpoints disponibles)
+- Filtrar movimientos por rango de fechas
 
 ---
 

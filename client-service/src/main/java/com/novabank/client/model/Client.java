@@ -39,9 +39,6 @@ public class Client {
     @NotBlank(message = "Phone is needed")
     private String phone;
 
-    //@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    //private List<Account> accounts = new ArrayList<>();
-
 
     public Client(String firstName, String lastName, String dni, String phone, String email) {
         this.firstName = firstName;
